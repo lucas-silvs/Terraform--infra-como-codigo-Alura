@@ -30,3 +30,21 @@ Após validar os recursos criado, execute o comando:
 ```
 terraform apply
 ```
+
+## Par de Chaves
+
+É necessário cria um par de chaves para permitir a conexão SSH a instancia ec2 do curso. para isso deve criar
+manualmente e adicionar a seguinte linha no arquivo Terraform:
+
+```
+resource "aws_instance" "app_server" {
+  ami           = "ami-830c94e3"
+  instance_type = "t2.micro"
+  key_name = "Nome_da_chave_criada" // adicionar linha para anexar par de chaves a instancia ec2
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+```
+
+Após criar o par de chaves e aplicar a alteração, será necessário executar o comando **terraform apply** novamente.
