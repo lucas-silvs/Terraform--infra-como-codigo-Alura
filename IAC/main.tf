@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  ami           = "ami-0ecc74eca1d66d8a6"
   instance_type = "t2.micro"
   key_name = "acesso-ec2"
   security_groups = [ "default", "acesso-ssh" ]
@@ -26,6 +26,6 @@ resource "aws_instance" "app_server" {
   #               EOF
 
   tags = {
-    Name = "teste aws com terraform 2"
+    Name = "terraform Ensible Pyhon"
   }
 }
