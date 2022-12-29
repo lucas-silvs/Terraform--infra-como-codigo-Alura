@@ -48,3 +48,10 @@ resource "aws_instance" "app_server" {
 ```
 
 Após criar o par de chaves e aplicar a alteração, será necessário executar o comando **terraform apply** novamente.
+
+##Utilizando Ansible
+Para executar o playbook Ansible, é necessário executar o comando abaixo:
+
+```
+ansible-playbook playbook.yml -u ubuntu --ssh-extra-args '-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedKeyTypes=+ssh-rsa'  --private-key acesso-ec2.pem -i hosts.yml
+```

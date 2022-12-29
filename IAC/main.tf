@@ -17,8 +17,15 @@ resource "aws_instance" "app_server" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
   key_name = "acesso-ec2"
+  security_groups = [ "default", "acesso-ssh" ]
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   cd /home/ubuntu
+  #   echo "<h1>Ola mundo feito com Terraform alterado</h1>" > index.html
+  #   nohup busybox httpd -f -p 8080 &
+  #               EOF
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "teste aws com terraform 2"
   }
 }
